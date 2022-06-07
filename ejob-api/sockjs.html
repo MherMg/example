@@ -1,0 +1,25 @@
+<html>
+<head>
+
+</head>
+<body>
+<script src="https://cdn.jsdelivr.net/npm/sockjs-client@1/dist/sockjs.min.js"></script>
+<script language="JavaScript">
+    var sock = new SockJS('http://localhost:8080/ws?authorization=eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIrMzc0Nzc0MzE1NTYiLCJleHAiOjE2NDgxNDk4MjksImlhdCI6MTY0NzgwNDIyOX0.JGyfOmOIw5WixO_1Uoc7SY-_PyFGB1pnU5zYc0NQIjc68t2JvwBCRVxzcxcH9xu_S4oLBJP2ACL00vSYFZGEj9Bvj4w');
+
+    sock.onopen = function () {
+        console.log('open');
+    };
+
+    sock.onmessage = function (e) {
+        console.log('message', e.data);
+        sock.close();
+    };
+
+    sock.onclose = function () {
+        console.log('close');
+    };
+
+</script>
+</body>
+</html>
